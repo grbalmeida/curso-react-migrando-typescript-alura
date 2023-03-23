@@ -8,20 +8,20 @@ interface CampoTextoProps {
     obrigatorio: boolean
 }
 
-const CampoTexto = (props: CampoTextoProps) => {
+const CampoTexto = ({aoAlterado, label, obrigatorio, placeholder, valor}: CampoTextoProps) => {
     
     const aoDigitado = (evento: React.ChangeEvent<HTMLInputElement>) => {
-        props.aoAlterado(evento.target.value);
+        aoAlterado(evento.target.value);
     };
 
     return (
         <div className="campo-texto">
-            <label>{props.label}</label>
+            <label>{label}</label>
             <input
-                value={props.valor}
+                value={valor}
                 onChange={aoDigitado}
-                required={props.obrigatorio}
-                placeholder={props.placeholder}
+                required={obrigatorio}
+                placeholder={placeholder}
             />
         </div>
     )
